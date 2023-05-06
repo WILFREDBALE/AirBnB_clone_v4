@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css?{{ cache_id }}" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css?{{ cache_id }}" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/3-footer.css?{{ cache_id }}" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/5-filters.css?{{ cache_id }}" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/6-places.css?{{ cache_id }}" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../static/scripts/1-hbnb.js?{{ cache_id }}"></script>
+  </head>
+  <body>
+    {% include '3-header.html' %}
+    <div class="container">
+      <div class="filters">
+        <h1>Filters</h1>
+        <div class="locations">
+          <h2>States</h2>
+          <ul>
+            {% for state in states %}
+            <li>
+              <input type="checkbox" name="state" id="state_{{ state.id }}"
+                     data-id="{{ state.id }}" data-name="{{ state.name }}">
+              <label for="state_{{ state.id }}">{{ state.name }}</label>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="amenities">
+          <h2>Amenities</h2>
+          <ul>
+            {% for amenity in amenities %}
+            <li>
+              <input type="checkbox" name="amenity" id="amenity_{{ amenity.id }}"
+                     data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">
+              <label for="amenity_{{ amenity.id }}">{{ amenity.name }}</label>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="places">
+        <h1>Places</h1>
